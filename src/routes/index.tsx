@@ -1,23 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LibraryScene } from "@/components/LibraryScene";
+import { SITE } from "@/lib/site";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: `${SITE.name} — The Whispering Library` },
+      { name: "description", content: "Step into a magical library portfolio guided by two cats. Find projects, GitHub, LinkedIn and more." },
+      { property: "og:title", content: `${SITE.name} — The Whispering Library` },
+      { property: "og:description", content: "A magical library portfolio guided by two cats." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen">
+      <header className="px-4 pb-4 pt-6 text-center">
+        <h1 className="text-4xl font-semibold text-primary sm:text-5xl">{SITE.name}</h1>
+        <p className="mt-1 text-sm text-muted-foreground">Tap the glowing book to explore · tap a cat to chat</p>
+      </header>
+      <LibraryScene />
+    </main>
   );
 }
