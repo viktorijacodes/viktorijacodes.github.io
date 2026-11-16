@@ -135,6 +135,11 @@
 @utility animate-glow { animation: pulse-glow 2.6s ease-in-out infinite; }
 @utility cloud-glow { filter: var(--cloud-glow); }
 
+/* Preserve the whole picture while leaving room for the name on short screens. */
+.library-scene {
+  width: min(100%, 1200px, calc((100svh - 9rem) * 1408 / 768));
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

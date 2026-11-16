@@ -23,18 +23,14 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
   const rows = PUFFS[`${puffs}-${side}`];
 
   return (
-    <div className="cloud-glow relative w-[7.5rem] sm:w-44 lg:w-52">
+    <div className="cloud-glow relative w-[7.5rem] @[640px]:w-44 @[1024px]:w-52">
       <svg aria-hidden="true" viewBox="0 0 240 170" preserveAspectRatio="none" className="absolute inset-0 h-full w-full fill-parchment stroke-cloud-outline" strokeWidth="2">
         <path d="M30 38 C16 16 46 2 66 15 C78 -2 108 0 120 12 C138 -1 167 1 178 17 C203 5 224 20 218 40 C243 46 242 72 230 84 C244 104 231 125 214 128 C220 152 188 164 170 153 C155 172 132 168 120 158 C99 173 77 167 67 154 C42 169 19 151 25 132 C1 127 -4 102 11 86 C-3 65 9 44 30 38 Z" />
       </svg>
       <div
-        className={`relative flex h-[5.25rem] flex-col items-center justify-center px-3 py-2 text-center font-display text-[0.6875rem] font-semibold leading-[1.05] sm:h-32 sm:px-5 sm:py-4 sm:text-sm sm:leading-snug lg:h-36 lg:text-base ${
-          tone === "grumpy"
-            ? "text-parchment-foreground italic"
-            : "text-parchment-foreground"
-        }`}
+        className="relative flex h-[5.25rem] flex-col items-center justify-center px-3 py-2 text-center font-display text-[0.6875rem] font-normal not-italic leading-[1.05] text-parchment-foreground @[640px]:h-32 @[640px]:px-5 @[640px]:py-4 @[640px]:text-sm @[640px]:leading-snug @[1024px]:h-36 @[1024px]:text-base"
       >
-        <span className="mb-1.5 block font-sans text-[0.55rem] font-bold uppercase tracking-normal text-parchment-foreground sm:mb-2 sm:text-[0.65rem] lg:text-xs">
+        <span className="mb-1.5 block font-bold uppercase tracking-normal text-parchment-foreground @[640px]:mb-2">
           {CATS[tone].name}
         </span>
         <span className="block w-full text-balance">{text}</span>
@@ -65,8 +61,8 @@ export function LibraryScene() {
   ];
 
   return (
-    <div className="relative w-full">
-      <div className="relative mx-auto aspect-[1408/768] w-full max-w-[1600px] overflow-hidden">
+    <div className="library-scene relative mx-auto">
+      <div className="@container relative mx-auto aspect-[1408/768] w-full overflow-hidden">
         <img src={scene} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
 
         {/* Pancakes hotspot */}
@@ -80,12 +76,12 @@ export function LibraryScene() {
           className="animate-glow absolute left-[40%] top-[35%] h-[23%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
         {/* Quote clouds floating above each cat */}
-        <div className="pointer-events-none absolute left-[20%] top-[46%] -translate-x-1/2 -translate-y-full md:left-[23%] md:top-[50%]">
+        <div className="pointer-events-none absolute left-[20%] top-[46%] -translate-x-1/2 -translate-y-full @[640px]:left-[23%] @[640px]:top-[50%]">
           <div key={grumpy} className="animate-cloud-bob">
             <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[79%] top-[50%] -translate-x-1/2 -translate-y-full md:top-[56%]">
+        <div className="pointer-events-none absolute left-[79%] top-[50%] -translate-x-1/2 -translate-y-full @[640px]:top-[56%]">
           <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>

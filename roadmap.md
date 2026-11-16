@@ -13,6 +13,8 @@
 - [x] Remove the made-up example projects, keeping only Care Assistant AI and Minneslådan
 
 ## Done in this update
+- [x] Match thought-bubble fonts, with regular quotes and bold cat names only
+- [x] Fit the entire opening library scene on phone and computer screens without scrolling
 - [x] Optimize every page for phone and computer: centered home scene, unclipped Sushi cloud on narrow phones, larger book tap area
 
 ## Waiting on Viktorija

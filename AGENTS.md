@@ -32,3 +32,4 @@ use the editor.
 - Import native image-tool cutouts directly from project assets; keep their alpha transparency so cat photos blend into the page.
 - GitHub Pages: `bun run build:pages` (GITHUB_PAGES=1) prerenders every page to static files in `dist/client`, deployed by `.github/workflows/deploy-pages.yml`; add new routes to `pages` in vite.config.ts. Why: Pages only serves static files.
 - Images the site shows are regular files in src/assets (not .asset.json pointers). Why: Lovable-hosted asset URLs don't exist on GitHub Pages.
+- Size the home scene against available viewport height and use scene-container breakpoints for clouds. Why: the full library must fit on short screens without oversized bubbles.
