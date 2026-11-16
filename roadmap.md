@@ -15,3 +15,4 @@
 - [x] Match marked home-page bubble positions and lower the name
 - [x] Remove color descriptions from cat labels, keeping only Pancakes and Sushi
 - [x] Remove marked lettering from the library sign and center thought-bubble text with comfortable spacing
+- [x] Lift bubbles and shorten thought trails away from cat faces; add “Viktorija’s Archives” to the pictured sign

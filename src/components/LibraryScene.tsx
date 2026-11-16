@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { BookOpen, Github, Linkedin, Heart, X } from "lucide-react";
-import scene from "@/assets/library-blank-sign.jpg";
+import scene from "@/assets/viktorijas-archives.jpg";
 import { SITE, CATS, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
 
 type Tone = "grumpy" | "carefree";
@@ -13,8 +13,8 @@ function useQuote(list: string[], start: number) {
 
 // Puff positions written out in full so Tailwind generates every class.
 const PUFFS = {
-  "bottom-left": ["-bottom-2.5 right-7 h-3 w-4", "-bottom-[1.5rem] right-4 h-2.5 w-3", "-bottom-[2.35rem] right-1.5 h-1.5 w-2"],
-  "bottom-right": ["-bottom-2.5 left-7 h-3 w-4", "-bottom-[1.5rem] left-4 h-2.5 w-3", "-bottom-[2.35rem] left-1.5 h-1.5 w-2"],
+  "bottom-left": ["-bottom-1.5 right-7 h-2 w-3", "-bottom-3 right-5 h-1.5 w-2", "-bottom-[1.1rem] right-4 h-1 w-1.5"],
+  "bottom-right": ["-bottom-1.5 left-7 h-2 w-3", "-bottom-3 left-5 h-1.5 w-2", "-bottom-[1.1rem] left-4 h-1 w-1.5"],
   "top-left": ["-top-2.5 right-7 h-3 w-4", "-top-[1.5rem] right-4 h-2.5 w-3", "-top-[2.35rem] right-1.5 h-1.5 w-2"],
   "top-right": ["-top-2.5 left-7 h-3 w-4", "-top-[1.5rem] left-4 h-2.5 w-3", "-top-[2.35rem] left-1.5 h-1.5 w-2"],
 } as const;
@@ -26,7 +26,7 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
   return (
     <div className="relative w-[7.75rem] sm:w-48 lg:w-60">
       <div
-        className={`flex h-[6.25rem] flex-col items-center justify-center border-2 bg-parchment px-3 py-3 text-center font-display text-[0.6875rem] font-semibold leading-[1.15] shadow-glow sm:h-40 sm:px-5 sm:py-4 sm:text-base sm:leading-snug lg:h-44 lg:text-lg ${
+        className={`flex h-[5.5rem] flex-col items-center justify-center border-2 bg-parchment px-3 py-2 text-center font-display text-[0.6875rem] font-semibold leading-[1.15] shadow-glow sm:h-40 sm:px-5 sm:py-4 sm:text-base sm:leading-snug lg:h-44 lg:text-lg ${
           puffs === "top" ? "rounded-[3.2rem_2.6rem_3rem_2.4rem]" : "rounded-[2.6rem_3rem_2.4rem_3.2rem]"
         } ${
           tone === "grumpy"
@@ -80,12 +80,12 @@ export function LibraryScene() {
           className="animate-glow absolute left-[40%] top-[37%] h-[19%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
         {/* Quote clouds floating above each cat */}
-        <div className="pointer-events-none absolute left-[20%] top-[51%] -translate-x-1/2 -translate-y-full md:left-[26%] md:top-[56%]">
+        <div className="pointer-events-none absolute left-[20%] top-[46%] -translate-x-1/2 -translate-y-full md:left-[23%] md:top-[50%]">
           <div key={grumpy} className="animate-cloud-bob">
             <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[83%] top-[55%] -translate-x-1/2 -translate-y-full md:left-[73%] md:top-[62%]">
+        <div className="pointer-events-none absolute left-[83%] top-[50%] -translate-x-1/2 -translate-y-full md:left-[79%] md:top-[56%]">
           <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>
