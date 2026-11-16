@@ -17,7 +17,7 @@ export const Route = createFileRoute("/projects")({
 
 function Projects() {
   return (
-    <PageShell title="Project blog" subtitle="“They're fine, I suppose.” — Grumpy">
+    <PageShell title="Project blog" subtitle="“They're fine, I suppose.” — Pancakes">
       <div className="grid gap-8 sm:grid-cols-2">
         {PROJECTS.map((p) => (
           <article key={p.title} className="overflow-hidden rounded-3xl border border-border bg-card">

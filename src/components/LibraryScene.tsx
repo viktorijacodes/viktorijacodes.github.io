@@ -2,27 +2,48 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { BookOpen, Github, Linkedin, Heart, X } from "lucide-react";
 import scene from "@/assets/whispering_library.jpg.asset.json";
-import { SITE, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
+import { SITE, CATS, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
+
+type Tone = "grumpy" | "carefree";
 
 function useQuote(list: string[], start: number) {
   const [i, setI] = useState(start);
   return [list[i % list.length] ?? "", () => setI((n) => n + 1)] as const;
 }
 
-function Bubble({ text, tone, side }: { text: string; tone: "grumpy" | "carefree"; side: "left" | "right" }) {
+// Puff positions written out in full so Tailwind generates every class.
+const PUFFS = {
+  "bottom-left": ["-bottom-2.5 right-7 h-3 w-4", "-bottom-[1.5rem] right-4 h-2.5 w-3", "-bottom-[2.35rem] right-1.5 h-1.5 w-2"],
+  "bottom-right": ["-bottom-2.5 left-7 h-3 w-4", "-bottom-[1.5rem] left-4 h-2.5 w-3", "-bottom-[2.35rem] left-1.5 h-1.5 w-2"],
+  "top-left": ["-top-2.5 right-7 h-3 w-4", "-top-[1.5rem] right-4 h-2.5 w-3", "-top-[2.35rem] right-1.5 h-1.5 w-2"],
+  "top-right": ["-top-2.5 left-7 h-3 w-4", "-top-[1.5rem] left-4 h-2.5 w-3", "-top-[2.35rem] left-1.5 h-1.5 w-2"],
+} as const;
+
+function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Tone; side: "left" | "right"; puffs?: "top" | "bottom" }) {
+  const puff = tone === "grumpy" ? "border-grumpy" : "border-carefree";
+  const rows = PUFFS[`${puffs}-${side}`];
+
   return (
-    <div
-      key={text}
-      className={`animate-float-in max-w-[15rem] rounded-2xl border-2 px-4 py-3 font-display text-base leading-snug shadow-glow sm:text-lg ${
-        tone === "grumpy"
-          ? "border-grumpy bg-parchment text-parchment-foreground italic"
-          : "border-carefree bg-parchment text-parchment-foreground"
-      } ${side === "left" ? "rounded-bl-sm" : "rounded-br-sm"}`}
-    >
-      <span className="mb-1 block font-sans text-xs font-bold uppercase tracking-widest text-accent">
-        {tone === "grumpy" ? "Grumpy · the white one" : "Sunny · the brown one"}
-      </span>
-      {text}
+    <div className="relative max-w-[11.5rem] lg:max-w-[15rem]">
+      <div
+        className={`border-2 bg-parchment px-4 py-3 font-display text-sm leading-snug shadow-glow sm:text-base lg:text-lg ${
+          puffs === "top" ? "rounded-[3.2rem_2.6rem_3rem_2.4rem]" : "rounded-[2.6rem_3rem_2.4rem_3.2rem]"
+        } ${
+          tone === "grumpy"
+            ? "border-grumpy text-parchment-foreground italic"
+            : "border-carefree text-parchment-foreground"
+        }`}
+      >
+        <span className="mb-1 block font-sans text-[0.65rem] font-bold uppercase tracking-widest text-accent lg:text-xs">
+          {CATS[tone].name} · {CATS[tone].descriptor}
+        </span>
+        {text}
+      </div>
+
+      {/* thought puffs trailing toward the cat */}
+      {rows.map((r) => (
+        <span key={r} aria-hidden className={`absolute rounded-full border-2 bg-parchment ${puff} ${r}`} />
+      ))}
     </div>
   );
 }
@@ -48,25 +69,37 @@ export function LibraryScene() {
       <div className="relative mx-auto aspect-[1408/768] w-full max-w-[1600px] overflow-hidden">
         <img src={scene.url} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
 
-        {/* Grumpy cat hotspot */}
-        <button aria-label="Talk to the grumpy white cat" onClick={nextGrumpy}
+        {/* Pancakes hotspot */}
+        <button aria-label={`Talk to ${CATS.grumpy.name}, the white cat`} onClick={nextGrumpy}
           className="absolute left-[18%] top-[57%] h-[34%] w-[18%] cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-ring" />
-        {/* Happy cat hotspot */}
-        <button aria-label="Talk to the happy brown cat" onClick={nextHappy}
+        {/* Sushi hotspot */}
+        <button aria-label={`Talk to ${CATS.carefree.name}, the brown cat`} onClick={nextHappy}
           className="absolute left-[56%] top-[63%] h-[34%] w-[34%] cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-ring" />
         {/* Book */}
         <button aria-label="Open the magical book menu" onClick={() => setOpen(true)}
           className="animate-glow absolute left-[40%] top-[37%] h-[19%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
-        {/* Bubbles on larger screens */}
-        <div className="pointer-events-none absolute left-[4%] top-[30%] hidden md:block"><Bubble text={grumpy} tone="grumpy" side="left" /></div>
-        <div className="pointer-events-none absolute right-[4%] top-[34%] hidden md:block"><Bubble text={happy} tone="carefree" side="right" /></div>
+        {/* Quote clouds floating above each cat */}
+        <div className="pointer-events-none absolute left-[26%] top-[56%] hidden -translate-x-1/2 -translate-y-full md:block">
+          <div key={grumpy} className="animate-cloud-bob">
+            <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
+          </div>
+        </div>
+        <div className="pointer-events-none absolute left-[73%] top-[62%] hidden -translate-x-1/2 -translate-y-full md:block">
+          <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
+            <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
+          </div>
+        </div>
       </div>
 
-      {/* Bubbles on phones */}
-      <div className="flex flex-col gap-3 px-4 py-5 md:hidden">
-        <button onClick={nextGrumpy} className="self-start text-left"><Bubble text={grumpy} tone="grumpy" side="left" /></button>
-        <button onClick={nextHappy} className="self-end text-left"><Bubble text={happy} tone="carefree" side="right" /></button>
+      {/* Quote clouds on phones: tucked under the picture, puffs pointing up at the cats */}
+      <div className="flex flex-col gap-9 px-4 pb-6 pt-2 md:hidden">
+        <button onClick={nextGrumpy} className="self-start text-left">
+          <div key={grumpy} className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" puffs="top" /></div>
+        </button>
+        <button onClick={nextHappy} className="self-end text-left">
+          <div key={happy} className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" puffs="top" /></div>
+        </button>
       </div>
 
       {open && (
