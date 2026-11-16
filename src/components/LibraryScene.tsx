@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { BookOpen, Github, Linkedin, Heart, X } from "lucide-react";
-import scene from "@/assets/whispering_library.jpg.asset.json";
+import scene from "@/assets/library-blank-sign.jpg";
 import { SITE, CATS, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
 
 type Tone = "grumpy" | "carefree";
@@ -24,9 +24,9 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
   const rows = PUFFS[`${puffs}-${side}`];
 
   return (
-    <div className="relative w-28 sm:w-auto sm:max-w-[11.5rem] lg:max-w-[15rem]">
+    <div className="relative w-[7.75rem] sm:w-48 lg:w-60">
       <div
-        className={`border-2 bg-parchment px-2 py-2 font-display text-[0.65rem] leading-snug shadow-glow sm:px-4 sm:py-3 sm:text-base lg:text-lg ${
+        className={`flex h-[6.25rem] flex-col items-center justify-center border-2 bg-parchment px-3 py-3 text-center font-display text-[0.6875rem] font-semibold leading-[1.15] shadow-glow sm:h-40 sm:px-5 sm:py-4 sm:text-base sm:leading-snug lg:h-44 lg:text-lg ${
           puffs === "top" ? "rounded-[3.2rem_2.6rem_3rem_2.4rem]" : "rounded-[2.6rem_3rem_2.4rem_3.2rem]"
         } ${
           tone === "grumpy"
@@ -34,10 +34,10 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
             : "border-carefree text-parchment-foreground"
         }`}
       >
-        <span className="mb-1 block font-sans text-[0.55rem] font-bold uppercase tracking-normal text-accent sm:text-[0.65rem] lg:text-xs">
+        <span className="mb-1.5 block font-sans text-[0.55rem] font-bold uppercase tracking-normal text-parchment-foreground sm:mb-2 sm:text-[0.65rem] lg:text-xs">
           {CATS[tone].name}
         </span>
-        {text}
+        <span className="block w-full text-balance">{text}</span>
       </div>
 
       {/* thought puffs trailing toward the cat */}
@@ -67,7 +67,7 @@ export function LibraryScene() {
   return (
     <div className="relative w-full">
       <div className="relative mx-auto aspect-[1408/768] w-full max-w-[1600px] overflow-hidden">
-        <img src={scene.url} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={scene} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
 
         {/* Pancakes hotspot */}
         <button aria-label={`Talk to ${CATS.grumpy.name}, the white cat`} onClick={nextGrumpy}
@@ -80,12 +80,12 @@ export function LibraryScene() {
           className="animate-glow absolute left-[40%] top-[37%] h-[19%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
         {/* Quote clouds floating above each cat */}
-        <div className="pointer-events-none absolute left-[20%] top-[47%] -translate-x-1/2 -translate-y-full md:left-[26%] md:top-[56%]">
+        <div className="pointer-events-none absolute left-[20%] top-[51%] -translate-x-1/2 -translate-y-full md:left-[26%] md:top-[56%]">
           <div key={grumpy} className="animate-cloud-bob">
             <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[83%] top-[53%] -translate-x-1/2 -translate-y-full md:left-[73%] md:top-[62%]">
+        <div className="pointer-events-none absolute left-[83%] top-[55%] -translate-x-1/2 -translate-y-full md:left-[73%] md:top-[62%]">
           <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>
