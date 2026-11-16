@@ -30,7 +30,7 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
       <div
         className="relative flex h-[5.25rem] flex-col items-center justify-center px-3 py-2 text-center font-display text-[0.6875rem] font-normal not-italic leading-[1.05] text-parchment-foreground @[640px]:h-32 @[640px]:px-5 @[640px]:py-4 @[640px]:text-sm @[640px]:leading-snug @[1024px]:h-36 @[1024px]:text-base"
       >
-        <span className="mb-1.5 block font-bold uppercase tracking-normal text-parchment-foreground @[640px]:mb-2">
+        <span className="mb-1.5 block text-[0.5625rem] font-bold uppercase tracking-normal text-parchment-foreground @[640px]:mb-2 @[640px]:text-xs @[1024px]:text-sm">
           {CATS[tone].name}
         </span>
         <span className="block w-full text-balance">{text}</span>
