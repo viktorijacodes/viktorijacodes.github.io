@@ -1,3 +1,5 @@
+import minnesladanPicture from "@/assets/minnesladan-memory-box.jpg.asset.json";
+
 export const SITE = {
   name: "Viktorija Damberga",
   github: "https://github.com/viktorijacodes",
@@ -27,9 +29,24 @@ export const CAREFREE_QUOTES = [
   "Life is good. Sunbeams are good. You are good!",
 ];
 
-export type Project = { title: string; description: string; image: string; link?: string };
+export type Project = {
+  title: string;
+  subtitle?: string;
+  description: string;
+  stack?: string;
+  image: string;
+  link?: string;
+};
 
 export const PROJECTS: Project[] = [
+  {
+    title: "Minneslådan",
+    subtitle: "Memory box",
+    description:
+      "My very first Python project! An application where relatives can contribute personal memories and stories, which are converted into spoken audio to bring comfort to elderly people with dementia through familiar voices and meaningful memories.",
+    stack: "Python · Tkinter · JSON · gTTS",
+    image: minnesladanPicture.url,
+  },
   {
     title: "Sample project one",
     description: "A short description of what this project does and what you learned building it.",

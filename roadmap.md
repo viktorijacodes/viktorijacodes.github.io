@@ -7,9 +7,10 @@
 
 - [x] Supplied About me story and background-free cat photos with name-to-cat arrows
 - [x] Thought bubbles above both cats on phones as well as desktop
+- [x] Minneslådan (Memory box) project entry: picture, description and tech list
 
 ## Waiting on Viktorija
-- [ ] Project blog entries: picture + title + short description for each project (two made-up examples now)
+- [ ] Project blog entries: picture + title + short description for each remaining project (two made-up examples still listed)
 
 ## Done in this update
 - [x] Match marked home-page bubble positions and lower the name
