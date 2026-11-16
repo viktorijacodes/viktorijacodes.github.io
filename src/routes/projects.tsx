@@ -10,6 +10,8 @@ export const Route = createFileRoute("/projects")({
       { name: "description", content: "Pictures and short stories about the projects I have built." },
       { property: "og:title", content: `Project blog — ${SITE.name}` },
       { property: "og:description", content: "Pictures and short stories about the projects I have built." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Projects,

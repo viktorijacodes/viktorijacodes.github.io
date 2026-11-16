@@ -9,6 +9,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Step into a magical library portfolio guided by two cats. Find projects, GitHub, LinkedIn and more." },
       { property: "og:title", content: `${SITE.name} — The Whispering Library` },
       { property: "og:description", content: "A magical library portfolio guided by two cats." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,

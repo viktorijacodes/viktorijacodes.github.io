@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Import native image-tool cutouts directly from project assets; keep their alpha transparency so cat photos blend into the page.

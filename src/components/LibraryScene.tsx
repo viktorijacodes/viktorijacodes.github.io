@@ -66,6 +66,11 @@ export function LibraryScene() {
 
   return (
     <div className="relative w-full">
+      {/* Phone clouds stay above the picture, aligned with their cats. */}
+      <div className="pointer-events-none grid grid-cols-2 items-end gap-4 px-3 pb-10 pt-2 md:hidden">
+        <div key={grumpy} className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
+        <div key={happy} className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
+      </div>
       <div className="relative mx-auto aspect-[1408/768] w-full max-w-[1600px] overflow-hidden">
         <img src={scene.url} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
 
@@ -90,16 +95,6 @@ export function LibraryScene() {
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>
         </div>
-      </div>
-
-      {/* Quote clouds on phones: tucked under the picture, puffs pointing up at the cats */}
-      <div className="flex flex-col gap-9 px-4 pb-6 pt-2 md:hidden">
-        <button onClick={nextGrumpy} className="self-start text-left">
-          <div key={grumpy} className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" puffs="top" /></div>
-        </button>
-        <button onClick={nextHappy} className="self-end text-left">
-          <div key={happy} className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" puffs="top" /></div>
-        </button>
       </div>
 
       {open && (
