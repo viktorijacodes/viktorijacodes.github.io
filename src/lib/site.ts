@@ -21,7 +21,7 @@ export const GRUMPY_QUOTES = [
 export const CAREFREE_QUOTES = [
   "Hiii! Welcome welcome! Click the glowing book! ✨",
   "She builds the coolest things, you'll love the project blog!",
-  "Don't mind Pancakes, he's just grumpy before his 14th nap.",
+  "Don't mind Pancakes, she's just grumpy before her 14th nap.",
   "Psst… her GitHub is full of treasures!",
   "Wanna see a picture of us? Check About Me!",
   "Life is good. Sunbeams are good. You are good!",
