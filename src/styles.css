@@ -97,6 +97,8 @@
   --parchment-foreground: oklch(0.3 0.05 30);
   --grumpy: oklch(0.93 0.01 300);
   --carefree: oklch(0.88 0.08 70);
+  --cloud-outline: oklch(0.9 0.11 95);
+  --cloud-glow: drop-shadow(0 0 4px oklch(0.92 0.12 95 / 60%)) drop-shadow(0 0 10px oklch(0.92 0.12 95 / 35%));
   --glow: 0 0 40px oklch(0.88 0.12 75 / 55%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -110,6 +112,7 @@
   --color-parchment-foreground: var(--parchment-foreground);
   --color-grumpy: var(--grumpy);
   --color-carefree: var(--carefree);
+  --color-cloud-outline: var(--cloud-outline);
   --font-display: "Cormorant Garamond", serif;
   --font-sans: "Karla", sans-serif;
   --shadow-glow: var(--glow);
@@ -130,6 +133,7 @@
 @utility animate-float-in { animation: float-in 0.35s ease-out both; }
 @utility animate-cloud-bob { animation: cloud-bob 6.5s ease-in-out infinite; }
 @utility animate-glow { animation: pulse-glow 2.6s ease-in-out infinite; }
+@utility cloud-glow { filter: var(--cloud-glow); }
 
 @layer base {
   * {
