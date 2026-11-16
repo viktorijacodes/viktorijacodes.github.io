@@ -24,9 +24,9 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
   const rows = PUFFS[`${puffs}-${side}`];
 
   return (
-    <div className="relative max-w-[11.5rem] lg:max-w-[15rem]">
+    <div className="relative w-28 sm:w-auto sm:max-w-[11.5rem] lg:max-w-[15rem]">
       <div
-        className={`border-2 bg-parchment px-4 py-3 font-display text-sm leading-snug shadow-glow sm:text-base lg:text-lg ${
+        className={`border-2 bg-parchment px-2 py-2 font-display text-[0.65rem] leading-snug shadow-glow sm:px-4 sm:py-3 sm:text-base lg:text-lg ${
           puffs === "top" ? "rounded-[3.2rem_2.6rem_3rem_2.4rem]" : "rounded-[2.6rem_3rem_2.4rem_3.2rem]"
         } ${
           tone === "grumpy"
@@ -34,8 +34,8 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
             : "border-carefree text-parchment-foreground"
         }`}
       >
-        <span className="mb-1 block font-sans text-[0.65rem] font-bold uppercase tracking-widest text-accent lg:text-xs">
-          {CATS[tone].name} · {CATS[tone].descriptor}
+        <span className="mb-1 block font-sans text-[0.55rem] font-bold uppercase tracking-normal text-accent sm:text-[0.65rem] lg:text-xs">
+          {CATS[tone].name}
         </span>
         {text}
       </div>
@@ -66,11 +66,6 @@ export function LibraryScene() {
 
   return (
     <div className="relative w-full">
-      {/* Phone clouds stay above the picture, aligned with their cats. */}
-      <div className="pointer-events-none grid grid-cols-2 items-end gap-4 px-3 pb-10 pt-2 md:hidden">
-        <div key={grumpy} className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
-        <div key={happy} className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
-      </div>
       <div className="relative mx-auto aspect-[1408/768] w-full max-w-[1600px] overflow-hidden">
         <img src={scene.url} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
 
@@ -85,12 +80,12 @@ export function LibraryScene() {
           className="animate-glow absolute left-[40%] top-[37%] h-[19%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
         {/* Quote clouds floating above each cat */}
-        <div className="pointer-events-none absolute left-[26%] top-[56%] hidden -translate-x-1/2 -translate-y-full md:block">
+        <div className="pointer-events-none absolute left-[20%] top-[47%] -translate-x-1/2 -translate-y-full md:left-[26%] md:top-[56%]">
           <div key={grumpy} className="animate-cloud-bob">
             <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[73%] top-[62%] hidden -translate-x-1/2 -translate-y-full md:block">
+        <div className="pointer-events-none absolute left-[83%] top-[53%] -translate-x-1/2 -translate-y-full md:left-[73%] md:top-[62%]">
           <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>

@@ -19,7 +19,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="min-h-screen">
-      <header className="px-4 pb-4 pt-6 text-center">
+      <header className="px-4 pb-5 pt-12 text-center sm:pt-10">
         <h1 className="text-4xl font-semibold text-primary sm:text-5xl">{SITE.name}</h1>
         <p className="mt-1 text-sm text-muted-foreground">Tap the glowing book to explore · tap a cat to chat</p>
       </header>

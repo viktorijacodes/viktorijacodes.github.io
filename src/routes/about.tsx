@@ -30,8 +30,8 @@ function About() {
           <p>Oh and remember the cats you met at the beginning of my portfolio? They're actually inspired by my very real cats! They're a pretty big part of my life since they are my unofficial coding assistants at the moment, so naturally, they had to make an appearance here too.</p>
         </div>
         <div className="mt-8 grid grid-cols-2 gap-5 sm:gap-12">
-          <CatPortrait name="Pancakes" descriptor="The white one" image={pancakes} />
-          <CatPortrait name="Sushi" descriptor="The brown one" image={sushi} />
+          <CatPortrait name="Pancakes" image={pancakes} />
+          <CatPortrait name="Sushi" image={sushi} />
         </div>
         <p className="mt-8 text-lg">Thanks for stopping by! 🩷</p>
       </div>
@@ -39,17 +39,16 @@ function About() {
   );
 }
 
-function CatPortrait({ name, descriptor, image }: { name: string; descriptor: string; image: string }) {
+function CatPortrait({ name, image }: { name: string; image: string }) {
   return (
     <figure className="flex min-w-0 flex-col items-center">
       <figcaption className="text-center">
         <span className="block font-display text-3xl font-semibold text-primary">{name}</span>
-        <span className="text-sm text-muted-foreground">{descriptor}</span>
       </figcaption>
       <svg aria-hidden="true" viewBox="0 0 64 60" className="my-2 h-14 w-16 shrink-0 text-accent" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M23 3 C52 10 53 30 32 52 M27 40 L32 52 L44 47" />
       </svg>
-      <img src={image} alt={`${name}, Viktorija's ${descriptor.toLowerCase().replace('the ', '')} cat`} className="h-64 w-full object-contain object-top sm:h-80" />
+      <img src={image} alt={`${name}, Viktorija's cat`} className="h-64 w-full object-contain object-top sm:h-80" />
     </figure>
   );
 }
