@@ -11,7 +11,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // GITHUB_PAGES=1 (set by `bun run build:pages` and the GitHub Actions workflow) produces a fully
 // static, prerendered site for https://viktorijacodes.github.io. Lovable builds are unaffected.
-const githubPages = process.env.GITHUB_PAGES === "1";
+const githubPages = process.env["GITHUB_PAGES"] === "1";
 
 export default defineConfig({
   tanstackStart: {
