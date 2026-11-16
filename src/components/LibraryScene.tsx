@@ -60,7 +60,7 @@ export function LibraryScene() {
   }, []);
 
   const menu = [
-    { label: "Project blog", icon: BookOpen, to: "/projects" as const },
+    { label: "My projects", icon: BookOpen, to: "/projects" as const },
     { label: "About me", icon: Heart, to: "/about" as const },
   ];
 

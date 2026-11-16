@@ -23,7 +23,7 @@ export const GRUMPY_QUOTES = [
 
 export const CAREFREE_QUOTES = [
   "Hiii! Welcome welcome! Click the glowing book! ✨",
-  "She builds the coolest things, you'll love the project blog!",
+  "She builds the coolest things, you'll love the projects!",
   "Don't mind Pancakes, she's just grumpy before her 14th nap.",
   "Psst… her GitHub is full of treasures!",
   "Wanna see a picture of us? Check About Me!",
@@ -55,15 +55,5 @@ export const PROJECTS: Project[] = [
       "My very first Python project! An application where relatives can contribute personal memories and stories, which are converted into spoken audio to bring comfort to elderly people with dementia through familiar voices and meaningful memories.",
     stack: "Python · Tkinter · JSON · gTTS",
     image: minnesladanPicture.url,
-  },
-  {
-    title: "Sample project one",
-    description: "A short description of what this project does and what you learned building it.",
-    image: "",
-  },
-  {
-    title: "Sample project two",
-    description: "Another little story about a thing you made, the tools you used and why.",
-    image: "",
   },
 ];

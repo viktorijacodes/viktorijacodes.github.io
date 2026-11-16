@@ -9,9 +9,11 @@
 - [x] Thought bubbles above both cats on phones as well as desktop
 - [x] Minneslådan (Memory box) project entry: picture, description and tech list
 - [x] Care Assistant AI project entry first in the list: picture, description, tech list and GitHub link
+- [x] Rename the page "My projects" and remove cat quotes from it
+- [x] Remove the made-up example projects, keeping only Care Assistant AI and Minneslådan
 
 ## Waiting on Viktorija
-- [ ] Project blog entries: picture + title + short description for each remaining project (two made-up examples still listed)
+- [ ] More project entries whenever she has them: picture + title + short description
 
 ## Done in this update
 - [x] Match marked home-page bubble positions and lower the name
