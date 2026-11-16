@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { BookOpen, Github, Linkedin, Heart, X } from "lucide-react";
-import scene from "@/assets/viktorijas-archives.jpg";
+import { BookOpen, Github, Linkedin, Heart } from "lucide-react";
+import scene from "@/assets/archives-library-refined.webp";
 import { SITE, CATS, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 type Tone = "grumpy" | "carefree";
 
@@ -62,18 +64,18 @@ export function LibraryScene() {
 
   return (
     <div className="library-scene relative mx-auto">
-      <div className="@container relative mx-auto aspect-[1408/768] w-full overflow-hidden">
-        <img src={scene} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="@container library-picture relative mx-auto aspect-[1408/768] w-full overflow-hidden">
+        <img src={scene} alt="A cozy magical library with a glowing open book between a white cat and a brown cat" fetchPriority="high" decoding="async" width={1920} height={1056} className="absolute inset-0 h-full w-full object-cover" />
 
         {/* Pancakes hotspot */}
-        <button aria-label={`Talk to ${CATS.grumpy.name}, the white cat`} onClick={nextGrumpy}
-          className="absolute left-[18%] top-[57%] h-[34%] w-[18%] cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-ring" />
+        <Button variant="ghost" aria-label={`Talk to ${CATS.grumpy.name}, the white cat`} onClick={nextGrumpy}
+          className="absolute left-[18%] top-[57%] h-[34%] w-[18%] rounded-full p-0 hover:bg-transparent" />
         {/* Sushi hotspot */}
-        <button aria-label={`Talk to ${CATS.carefree.name}, the brown cat`} onClick={nextHappy}
-          className="absolute left-[56%] top-[63%] h-[34%] w-[34%] cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-ring" />
+        <Button variant="ghost" aria-label={`Talk to ${CATS.carefree.name}, the brown cat`} onClick={nextHappy}
+          className="absolute left-[56%] top-[63%] h-[34%] w-[34%] rounded-full p-0 hover:bg-transparent" />
         {/* Book */}
-        <button aria-label="Open the magical book menu" onClick={() => setOpen(true)}
-          className="animate-glow absolute left-[40%] top-[35%] h-[23%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
+        <Button variant="ghost" aria-label="Open the magical book menu" onClick={() => setOpen(true)}
+          className="animate-glow absolute left-[40%] top-[35%] h-[23%] w-[20%] rounded-lg p-0 transition-transform hover:scale-105 hover:bg-transparent" />
 
         {/* Quote clouds floating above each cat */}
         <div className="pointer-events-none absolute left-[20%] top-[46%] -translate-x-1/2 -translate-y-full @[640px]:left-[23%] @[640px]:top-[50%]">
@@ -88,28 +90,31 @@ export function LibraryScene() {
         </div>
       </div>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/70 p-4 backdrop-blur-sm" onClick={() => setOpen(false)}>
-          <div onClick={(e) => e.stopPropagation()} className="animate-float-in relative w-full max-w-md rounded-3xl border-2 border-primary bg-parchment p-6 text-parchment-foreground shadow-glow">
-            <button aria-label="Close" onClick={() => setOpen(false)} className="absolute right-4 top-4 opacity-60 hover:opacity-100"><X className="h-5 w-5" /></button>
-            <h2 className="text-center text-3xl font-semibold">Where shall we go?</h2>
-            <p className="mb-5 text-center text-sm opacity-70">Choose a page from the book</p>
+      <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent aria-describedby={undefined} className="max-h-[calc(100svh-2rem)] w-[calc(100%-2rem)] max-w-md overflow-y-auto rounded-lg border-primary/50 bg-parchment p-6 text-parchment-foreground shadow-glow sm:p-8">
+            <BookOpen aria-hidden="true" className="mx-auto h-7 w-7 text-parchment-foreground/60" />
+            <DialogTitle className="text-center font-display text-3xl tracking-normal">Where shall we go?</DialogTitle>
             <div className="grid grid-cols-2 gap-3">
               {menu.map((m) => (
-                <Link key={m.to} to={m.to} className="flex flex-col items-center gap-2 rounded-2xl border border-parchment-foreground/20 p-4 transition hover:bg-primary/40">
+                <Button asChild variant="outline" key={m.to} className="h-auto min-h-24 flex-col gap-3 rounded-lg border-parchment-foreground/20 bg-transparent p-4 hover:bg-primary/20 hover:text-parchment-foreground [&_svg]:size-6">
+                <Link to={m.to}>
                   <m.icon className="h-6 w-6" /> <span className="font-display text-lg font-semibold">{m.label}</span>
                 </Link>
+                </Button>
               ))}
-              <a href={SITE.github} target="_blank" rel="noreferrer" className="flex flex-col items-center gap-2 rounded-2xl border border-parchment-foreground/20 p-4 transition hover:bg-primary/40">
+              <Button asChild variant="outline" className="h-auto min-h-24 flex-col gap-3 rounded-lg border-parchment-foreground/20 bg-transparent p-4 hover:bg-primary/20 hover:text-parchment-foreground [&_svg]:size-6">
+              <a href={SITE.github} target="_blank" rel="noreferrer">
                 <Github className="h-6 w-6" /> <span className="font-display text-lg font-semibold">GitHub</span>
               </a>
-              <a href={SITE.linkedin} target="_blank" rel="noreferrer" className="flex flex-col items-center gap-2 rounded-2xl border border-parchment-foreground/20 p-4 transition hover:bg-primary/40">
+              </Button>
+              <Button asChild variant="outline" className="h-auto min-h-24 flex-col gap-3 rounded-lg border-parchment-foreground/20 bg-transparent p-4 hover:bg-primary/20 hover:text-parchment-foreground [&_svg]:size-6">
+              <a href={SITE.linkedin} target="_blank" rel="noreferrer">
                 <Linkedin className="h-6 w-6" /> <span className="font-display text-lg font-semibold">LinkedIn</span>
               </a>
+              </Button>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogContent>
+      </Dialog>
     </div>
   );
 }
