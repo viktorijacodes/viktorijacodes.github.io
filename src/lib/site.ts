@@ -1,5 +1,5 @@
-import careAssistantPicture from "@/assets/care-assistant-ai.jpg.asset.json";
-import minnesladanPicture from "@/assets/minnesladan-memory-box.jpg.asset.json";
+import careAssistantPicture from "@/assets/care-assistant-ai.jpg";
+import minnesladanPicture from "@/assets/minnesladan-memory-box.jpg";
 
 export const SITE = {
   name: "Viktorija Damberga",
@@ -43,7 +43,7 @@ export const PROJECTS: Project[] = [
     description:
       "An AI-powered application that helps care staff create personalised activities based on residents' interests, abilities and individual needs, making person-centred care easier to put into practice.",
     stack: "Python · Google Antigravity",
-    image: careAssistantPicture.url,
+    image: careAssistantPicture,
     link: SITE.github,
   },
   {
@@ -52,6 +52,6 @@ export const PROJECTS: Project[] = [
     description:
       "My very first Python project! An application where relatives can contribute personal memories and stories, which are converted into spoken audio to bring comfort to elderly people with dementia through familiar voices and meaningful memories.",
     stack: "Python · Tkinter · JSON · gTTS",
-    image: minnesladanPicture.url,
+    image: minnesladanPicture,
   },
 ];
