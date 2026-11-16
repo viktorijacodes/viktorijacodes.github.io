@@ -6,7 +6,7 @@ import { SITE, GRUMPY_QUOTES, CAREFREE_QUOTES } from "@/lib/site";
 
 function useQuote(list: string[], start: number) {
   const [i, setI] = useState(start);
-  return [list[i % list.length], () => setI((n) => n + 1)] as const;
+  return [list[i % list.length] ?? "", () => setI((n) => n + 1)] as const;
 }
 
 function Bubble({ text, tone, side }: { text: string; tone: "grumpy" | "carefree"; side: "left" | "right" }) {
