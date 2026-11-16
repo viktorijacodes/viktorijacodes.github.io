@@ -12,6 +12,9 @@
 - [x] Rename the page "My projects" and remove cat quotes from it
 - [x] Remove the made-up example projects, keeping only Care Assistant AI and Minneslådan
 
+## Done in this update
+- [x] Optimize every page for phone and computer: centered home scene, unclipped Sushi cloud on narrow phones, larger book tap area
+
 ## Waiting on Viktorija
 - [ ] More project entries whenever she has them: picture + title + short description
 

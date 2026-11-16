@@ -77,7 +77,7 @@ export function LibraryScene() {
           className="absolute left-[56%] top-[63%] h-[34%] w-[34%] cursor-pointer rounded-full focus-visible:outline-2 focus-visible:outline-ring" />
         {/* Book */}
         <button aria-label="Open the magical book menu" onClick={() => setOpen(true)}
-          className="animate-glow absolute left-[40%] top-[37%] h-[19%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
+          className="animate-glow absolute left-[40%] top-[35%] h-[23%] w-[20%] cursor-pointer rounded-xl transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-ring" />
 
         {/* Quote clouds floating above each cat */}
         <div className="pointer-events-none absolute left-[20%] top-[46%] -translate-x-1/2 -translate-y-full md:left-[23%] md:top-[50%]">
@@ -85,7 +85,7 @@ export function LibraryScene() {
             <div className="animate-float-in"><Cloud text={grumpy} tone="grumpy" side="left" /></div>
           </div>
         </div>
-        <div className="pointer-events-none absolute left-[83%] top-[50%] -translate-x-1/2 -translate-y-full md:left-[79%] md:top-[56%]">
+        <div className="pointer-events-none absolute left-[79%] top-[50%] -translate-x-1/2 -translate-y-full md:top-[56%]">
           <div key={happy} className="animate-cloud-bob [animation-delay:1.2s]">
             <div className="animate-float-in"><Cloud text={happy} tone="carefree" side="right" /></div>
           </div>
