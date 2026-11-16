@@ -24,11 +24,12 @@ function Cloud({ text, tone, side, puffs = "bottom" }: { text: string; tone: Ton
   const rows = PUFFS[`${puffs}-${side}`];
 
   return (
-    <div className="relative w-[7.75rem] sm:w-48 lg:w-60">
+    <div className="relative w-[7.5rem] sm:w-44 lg:w-52">
+      <svg aria-hidden="true" viewBox="0 0 240 170" preserveAspectRatio="none" className={`absolute inset-0 h-full w-full fill-parchment ${tone === "grumpy" ? "stroke-grumpy" : "stroke-carefree"}`} strokeWidth="2">
+        <path d="M30 38 C16 16 46 2 66 15 C78 -2 108 0 120 12 C138 -1 167 1 178 17 C203 5 224 20 218 40 C243 46 242 72 230 84 C244 104 231 125 214 128 C220 152 188 164 170 153 C155 172 132 168 120 158 C99 173 77 167 67 154 C42 169 19 151 25 132 C1 127 -4 102 11 86 C-3 65 9 44 30 38 Z" />
+      </svg>
       <div
-        className={`flex h-[5.5rem] flex-col items-center justify-center border-2 bg-parchment px-3 py-2 text-center font-display text-[0.6875rem] font-semibold leading-[1.15] shadow-glow sm:h-40 sm:px-5 sm:py-4 sm:text-base sm:leading-snug lg:h-44 lg:text-lg ${
-          puffs === "top" ? "rounded-[3.2rem_2.6rem_3rem_2.4rem]" : "rounded-[2.6rem_3rem_2.4rem_3.2rem]"
-        } ${
+        className={`relative flex h-[5.25rem] flex-col items-center justify-center px-3 py-2 text-center font-display text-[0.6875rem] font-semibold leading-[1.05] sm:h-32 sm:px-5 sm:py-4 sm:text-sm sm:leading-snug lg:h-36 lg:text-base ${
           tone === "grumpy"
             ? "border-grumpy text-parchment-foreground italic"
             : "border-carefree text-parchment-foreground"
