@@ -1,3 +1,4 @@
+import careAssistantPicture from "@/assets/care-assistant-ai.jpg.asset.json";
 import minnesladanPicture from "@/assets/minnesladan-memory-box.jpg.asset.json";
 
 export const SITE = {
@@ -39,6 +40,14 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
+  {
+    title: "Care Assistant AI",
+    description:
+      "An AI-powered application that helps care staff create personalised activities based on residents' interests, abilities and individual needs, making person-centred care easier to put into practice.",
+    stack: "Python · Google Antigravity",
+    image: careAssistantPicture.url,
+    link: SITE.github,
+  },
   {
     title: "Minneslådan",
     subtitle: "Memory box",

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { PROJECTS, SITE } from "@/lib/site";
-import { ImageIcon } from "lucide-react";
+import { ExternalLink, ImageIcon } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -45,6 +45,17 @@ function Projects() {
                 <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   {p.stack}
                 </p>
+              )}
+              {p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                >
+                  See it on GitHub
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               )}
             </div>
           </article>

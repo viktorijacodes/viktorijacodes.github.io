@@ -8,6 +8,7 @@
 - [x] Supplied About me story and background-free cat photos with name-to-cat arrows
 - [x] Thought bubbles above both cats on phones as well as desktop
 - [x] Minneslådan (Memory box) project entry: picture, description and tech list
+- [x] Care Assistant AI project entry first in the list: picture, description, tech list and GitHub link
 
 ## Waiting on Viktorija
 - [ ] Project blog entries: picture + title + short description for each remaining project (two made-up examples still listed)
