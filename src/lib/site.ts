@@ -14,16 +14,14 @@ export const CATS = {
 
 export const GRUMPY_QUOTES = [
   "Hmph. Another visitor. Touch the book if you must.",
-  "I was napping. Make it quick.",
-  "The projects are fine. I've seen better. (I haven't.)",
-  "Don't even think about petting me.",
-  "LinkedIn? Humans and their networking. Ugh.",
   "Yes, I'm in the About page photo. No autographs.",
+  "LinkedIn? Humans and their networking. Ugh.",
+  "I was napping. Make it quick.",
+  "Don't even think about petting me.",
 ];
 
 export const CAREFREE_QUOTES = [
   "Hiii! Welcome welcome! Click the glowing book! ✨",
-  "She builds the coolest things, you'll love the projects!",
   "Don't mind Pancakes, she's just grumpy before her 14th nap.",
   "Psst… her GitHub is full of treasures!",
   "Wanna see a picture of us? Check About Me!",
