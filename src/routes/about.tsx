@@ -20,7 +20,7 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <PageShell title="About me">
+    <PageShell title="About me" titleClassName="text-center">
       <div className="mx-auto max-w-2xl">
         <div className="space-y-5 text-base leading-relaxed sm:text-lg">
           <h2 className="text-3xl font-semibold text-primary">Hello and welcome!</h2>
